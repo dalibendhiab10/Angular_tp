@@ -1,0 +1,41 @@
+<div class="d-flex " style="padding-top: 20px; cursor:pointer;">
+    <div class="flex-grow-1">
+        <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4">
+            <li *ngFor="let prod of produits" (click)="onProductChange(prod)" class="col list-unstyled">
+                <div class="card h-100">
+                    <img src="{{prod.img}}" class="card-img-top" alt="{{prod.nom}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{prod.nom}}</h5>
+                        <p class="card-text">Prix: {{prod.prix}}</p>
+                        <button *ngIf="prod.description" (click)="onDetail(prod.description)" class="btn btn-primary">Détails</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="flex-grow-0" style="width:100%" *ngIf="produit.nom">
+        <app-home-product-detail [prod]="produit"></app-home-product-detail>
+    </div>
+</div>
+
+<style>
+    /* No need to define styles for the list and list items anymore */
+    .card {
+        border: 2px solid blue;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .card-text {
+        font-size: 16px;
+    }
+    @media (max-width: 768px) {
+        .d-flex {
+         flex-wrap: wrap!important; 
+
+        }
+    }
+</style>

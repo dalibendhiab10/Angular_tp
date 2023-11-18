@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form [formGroup]="productAddForm" (ngSubmit)="onAjouter()">
+                <div class="form-group">
+                    <label for="nomProduit">Nom Produit</label>
+                    <input type="text" class="form-control" id="nomProduit" placeholder="Enter Nom Produit" formControlName="nameControl">
+                </div>
+                <div class="form-group">
+                    <label for="prix">Prix</label>
+                    <input type="number" class="form-control" id="prix" placeholder="Enter Prix" formControlName="prixControl">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Enter Description" formControlName="descriptionControl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="imageUpload">Image Upload</label>
+                    <input type="file" class="form-control-file" id="imageUpload" formControlName="imageUploadControl">
+                </div>
+                <div class="form-group">
+                    <label for="categorie">Categorie</label>
+                    <select class="form-control" id="categorie" formControlName="categorieControl">
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">ajouter </button>
+            </form>
+        </div>
+    </div>
+</div>

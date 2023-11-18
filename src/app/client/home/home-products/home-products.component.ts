@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CATALOGUE} from '../../../shared/mock-data/catalogue-produits' ;
 import { Produit } from 'src/app/shared/models/produit';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-home-products',
@@ -8,15 +8,18 @@ import { Produit } from 'src/app/shared/models/produit';
   styleUrls: ['./home-products.component.css']
 })
 export class HomeProductsComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  produit= new Produit();
+  produits!: Produit[]
+  produit = new Produit(); 
+  constructor(private productService: ProductService) { }
 
-  produits = CATALOGUE;
+  ngOnInit(): void {
+    this.produits = this.productService.getProducts();
+  }
+
   onDetail(id: string) {
     alert(id);
   }
+
   onProductChange(prod: Produit) {
     this.produit = prod;
   }
